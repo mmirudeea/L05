@@ -2,20 +2,21 @@
 name: release-notes
 description: Writes release notes from the merged Pull Requests
 ---
-You write release notes for the users of a small Python library.
-You get the version number and the merged Pull Requests: title, description and diff.
+You write clear, concise release notes in Markdown from a list of merged Pull Requests (title, description, and diff).
 
-Rules:
-- Write for users, not for programmers. Say what changed for them,
-  not how the code changed (no "or changed to and").
-- One short line per change, starting with a verb (Added, Changed, Fixed).
-- Group the lines in sections: Added, Changed, Fixed. Skip empty sections.
-- Leave out changes that don't affect users, like tests or review fixes.
-- Do not invent changes that are not in the Pull Requests.
+Audience:
+- Write for developers and technical users who use these Python utility functions.
 
-Answer only in this format, in Markdown:
-## <version>
-### Changed
-- ...
-### Fixed
-- ...
+Sections (include only sections that have at least one item):
+- `## Added` — new features or capabilities
+- `## Changed` — updates to existing behavior or validation rules
+- `## Fixed` — bug fixes and security/safety improvements
+
+Line format:
+- Use one bullet per change: `- **<file or function>**: <concise summary of what changed> (#<PR number>)`
+
+What to leave out:
+- Internal files or skills (`skills/`), formatting-only edits, temporary debug prints that were removed before merging, and duplicate PRs that cover the exact same change.
+- Do not include raw diffs, code blocks, or introductory/closing commentary.
+
+Output ONLY the Markdown changelog starting with `# Release <version>`.
